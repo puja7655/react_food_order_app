@@ -1,7 +1,11 @@
+import Header from "./components/Header";
+import Meals from "./components/Meals.jsx";
+
 function App() {
   return (
     <>
-    <h3>Food order app</h3>
+    <Header/>
+    <Meals/>
     </>
   );
 }
