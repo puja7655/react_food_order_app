@@ -20,6 +20,9 @@ I have created context object `ContextType` using createContext
 --here logic for addItem and remove item from cart is added using useReducer. and then wrapping it in app.jsx so that all the componenets and their child componenets can have the access of the context 
 and its properties. Putting it in a seperate files as this logic we would need at more than one place.
 
+-- I am opening the cart in the modal via a new context named 'UserProgressContext`. This context contains functionality to show and hide cart and show and hide checkout screen
+   I have created a modal and used createPortal in it to open it in seperate location.the same modal 
+   i will be using for checkout as well
 
 ...to be continued
 
