@@ -16,8 +16,8 @@ components folder has three componenet
 3) Meal->make a get request to get all meal items from backend and renders on the screen
 
 
-I have created CartContextProvider using createContext and useReducer 
---here logic for addItem and remove item from cart is added. and then wrapping it in app.jsx so that all the componenets and their child componenets can have the access of the context 
+I have created context object `ContextType` using createContext  
+--here logic for addItem and remove item from cart is added using useReducer. and then wrapping it in app.jsx so that all the componenets and their child componenets can have the access of the context 
 and its properties. Putting it in a seperate files as this logic we would need at more than one place.
 
 
