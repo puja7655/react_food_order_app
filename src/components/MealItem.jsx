@@ -1,7 +1,16 @@
-import {currencyFormatter} from '../util/formatting'
+import { currencyFormatter } from '../util/formatting'
 import Button from '../ui/Button'
+import { useContext } from 'react'
+import ContextType from '../store/CartContext'
 
 export default function MealItem({ meal }) {
+
+    const cartCtx = useContext(ContextType) // now cartCtx will have access to all the properties in CartContextProvider
+
+    function handleAddMealToCart() {
+        cartCtx.addItem(meal)
+    }
+
     return <li className="meal-item">
         <article>
             <img src={`http://localhost:3000/${meal.image}`} alt={meal.name} />
@@ -13,7 +22,7 @@ export default function MealItem({ meal }) {
                 <p className="meal-item-description">{meal.description}</p>
             </div>
             <p className="meal-item-action">
-                <Button>Add to cart</Button>
+                <Button onClick={handleAddMealToCart}>Add to cart</Button>
             </p>
         </article>
     </li>

@@ -18,13 +18,13 @@ function cartReducer(state, action) {
             const updatePresentItem = {
                 ...existingItem,
                 quantity: existingItem.quantity + 1
-            }
+            };
             updateItems[existingCratItemIndex] = updatePresentItem
-
-            return { ...state, items: updateItems }
         } else {
-            updateItems.push({ ...action.item, quantity: 1 })
+             updateItems.push({ ...action.item, quantity: 1 })
         }
+
+        return { ...state, items: updateItems }
     }
 
     if (action.type === 'REMOVE_ITEM') {
@@ -49,7 +49,7 @@ function cartReducer(state, action) {
 }
 
 export function CartContextProvider({ children }) {
-    const [cartState, dispatchCartItem] = useReducer(cartReducer, { item: [] })
+    const [cartState, dispatchCartItem] = useReducer(cartReducer, { items: [] })
 
     function addItem(item) {
         dispatchCartItem({ type: 'ADD_ITEM', item })
@@ -60,10 +60,12 @@ export function CartContextProvider({ children }) {
     }
 
     const cartContext = {
-        items: cartState.item,
+        items: cartState.items,
         addItem,
         removeItem
     }
+
+    console.log("cart",cartContext)
 
     /** now with value={catContext} all component consuming ContextType will have access to cartContext and through that
      *  will have access to add and remove functionality wich we added using reducer.
