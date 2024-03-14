@@ -1,6 +1,4 @@
-import { useContext } from "react"
 import { currencyFormatter } from "../util/formatting"
-import ContextType from '../store/CartContext'
 
 export default function CartItem({name, quantity, price, onIncrease, onDecrease }) {
 
