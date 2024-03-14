@@ -29,11 +29,11 @@ function cartReducer(state, action) {
 
     if (action.type === 'REMOVE_ITEM') {
         const existingCratItemIndex = state.items.findIndex(
-            (item) => item.id === id);
+            (item) => item.id === action.id);
         const existingCartItem = state.items[existingCratItemIndex]
-        const updateItems = [...state.item]
+        const updateItems = [...state.items]
 
-        if (state.item[existingCratItemIndex] === 1) {
+        if (existingCartItem.quantity === 1) {
             updateItems.splice(existingCratItemIndex, 1)
         } else {
             //If the item is already present i want to decrease the quantity .
@@ -42,8 +42,8 @@ function cartReducer(state, action) {
                 quantity: existingCartItem.quantity - 1
             }
             updateItems[existingCratItemIndex] = updatePresentItem;
-            return { ...state, items: updateItems }
         }
+        return { ...state, items: updateItems }
     }
     return state
 }
