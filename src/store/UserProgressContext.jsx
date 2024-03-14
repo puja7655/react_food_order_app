@@ -4,7 +4,7 @@ const UserProgressContext = createContext({
     progress: '',//cart,checkout
     showCart: () => { },
     hideCart: () => { },
-    chowCheckout: () => { },
+    showCheckout: () => { },
     hideCheckout: () => { }
 })
 
