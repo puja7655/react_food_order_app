@@ -31,6 +31,11 @@ and its properties. Putting it in a seperate files as this logic we would need a
 2) pass it ass prop from cart to cartItem .
 
 I followed the second approch to keep the code in cartItem leaner since cartContext was already being used in cart so simpled passed it as prop. 
+
+--- Added checkout component . i created a custom Input Componenet which has label and input in it to avoid the code duplicacy in ckecout component
+    I also managed the modal visibility . An edge was handeled here by handling onClose in Modal component
+     as when user tries to close the dialog with esc key onClose() is trigered modal closes but the value of cart is not changed so to do that 
+     i am calling hideCloseCArt on onclose method and passing to modal componnent via prop from the places modal is being used.
    
 
 ...to be continued
