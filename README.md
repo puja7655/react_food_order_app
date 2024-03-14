@@ -24,6 +24,15 @@ and its properties. Putting it in a seperate files as this logic we would need a
    I have created a modal and used createPortal in it to open it in seperate location.the same modal 
    i will be using for checkout as well
 
+--- Added cart Item in the project which displayes the content of the cart . list of meals added , their quantity and the price . I could have added it directly to cart item but to modularize it i decided to add it as seperate component. I have passed the infirmation like name , quatity and price as props. I neeed to call AddItem and removeItem from CartContext to increase and decrease the quantity of meals added. 
+
+ There were two ways to do it .
+1) use the cartContext in the cartItem 
+2) pass it ass prop from cart to cartItem .
+
+I followed the second approch to keep the code in cartItem leaner since cartContext was already being used in cart so simpled passed it as prop. 
+   
+
 ...to be continued
 
    
