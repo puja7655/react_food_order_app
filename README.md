@@ -28,15 +28,20 @@ and its properties. Putting it in a seperate files as this logic we would need a
 
  There were two ways to do it .
 1) use the cartContext in the cartItem 
-2) pass it ass prop from cart to cartItem .
+2) pass it as prop from cart to cartItem .
 
 I followed the second approch to keep the code in cartItem leaner since cartContext was already being used in cart so simpled passed it as prop. 
 
 --- Added checkout component . i created a custom Input Componenet which has label and input in it to avoid the code duplicacy in ckecout component
     I also managed the modal visibility . An edge was handeled here by handling onClose in Modal component
      as when user tries to close the dialog with esc key onClose() is trigered modal closes but the value of cart is not changed so to do that 
-     i am calling hideCloseCArt on onclose method and passing to modal componnent via prop from the places modal is being used.
-   
+     i am calling hideCloseCart on onclose method and passing to modal componnent via prop from the places modal is being used.
+
+--- First i tried sending post request with order data then since http request is being made at several places i decided to create a custom hook `useHttp`
+    which sends a request to backend fetches the response and returns and object containing responseData,error,loadingstatus,sendRequest method and clearData method
+    I also created a seperate Error page to handle the error and show it .
+    I am alos showing a success message in a modal .
+    I could have created a seperate component for success but i am feeling lazy so doing it in the checkout component itself
 
 ...to be continued
 
