@@ -3,7 +3,8 @@ import { createContext, useReducer } from "react";
 const ContextType = createContext({
     item: [],
     addItem: (item) => { },
-    removeItem: (id) => { }
+    removeItem: (id) => { },
+    clearCart: () => { }
 });
 
 function cartReducer(state, action) {
@@ -21,7 +22,7 @@ function cartReducer(state, action) {
             };
             updateItems[existingCratItemIndex] = updatePresentItem
         } else {
-             updateItems.push({ ...action.item, quantity: 1 })
+            updateItems.push({ ...action.item, quantity: 1 })
         }
 
         return { ...state, items: updateItems }
@@ -45,6 +46,10 @@ function cartReducer(state, action) {
         }
         return { ...state, items: updateItems }
     }
+
+    if (action.type === 'CLEAR_CART') {
+        return { ...state, items: [] }
+    }
     return state
 }
 
@@ -59,13 +64,18 @@ export function CartContextProvider({ children }) {
         dispatchCartItem({ type: 'REMOVE_ITEM', id })
     }
 
+    function clearCart(id) {
+        dispatchCartItem({ type: 'CLEAR_CART' })
+    }
+
     const cartContext = {
         items: cartState.items,
         addItem,
-        removeItem
+        removeItem,
+        clearCart
     }
 
-    console.log("cart",cartContext)
+    console.log("cart", cartContext)
 
     /** now with value={catContext} all component consuming ContextType will have access to cartContext and through that
      *  will have access to add and remove functionality wich we added using reducer.

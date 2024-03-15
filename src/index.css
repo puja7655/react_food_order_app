@@ -245,8 +245,18 @@ h1 {
   animation: fade-slide-up 0.3s ease-out forwards;
 }
 
+
 .modal::backdrop {
   background-color: rgba(0, 0, 0, 0.55);
+}
+
+.error {
+  background-color: lightcoral;
+  border-radius: 6px;
+  width:80%;
+  max-width:20rem;
+  margin:auto;
+  color: rgb(110, 8, 8);
 }
 
 @keyframes fade-slide-up {
